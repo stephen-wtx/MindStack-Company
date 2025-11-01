@@ -10,13 +10,11 @@
   --cor-laranja:#f58b1d;
   --gradiente-fundo:linear-gradient(135deg,#fffefb,#fedfa7);
 }
-
 /* Body e fundo */
 body, html{
   margin:0; padding:0; height:100%; font-family:'Inter',sans-serif;
   background:var(--gradiente-fundo); overflow-x:hidden; cursor:default;
 }
-
 /* Shapes animadas */
 .background-shapes{
   position:fixed; top:0; left:0; width:100%; height:100%;
@@ -32,14 +30,25 @@ body, html{
 .triangle3{top:50%;left:80%;animation-duration:100s;}
 @keyframes rotateCircle{0%{transform:rotate(0deg) translateX(0) rotate(0);}50%{transform:rotate(180deg) translateX(20px) rotate(180deg);}100%{transform:rotate(360deg) translateX(0) rotate(360deg);}}
 @keyframes rotateTriangle{0%{transform:rotate(0deg) translateY(0) rotate(0);}50%{transform:rotate(180deg) translateY(15px) rotate(180deg);}100%{transform:rotate(360deg) translateY(0) rotate(360deg);}}
-
-header{
-  position:fixed; top:0; left:0; width:100%; height:80px; z-index:10;
-  transition:background 0.3s ease, backdrop-filter 0.3s ease;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
-header.menu-open{
-  backdrop-filter:blur(10px);
-  background-color:rgba(255,254,251,0.7);
+
+/* Quando o menu abre (mantém efeito consistente mas um pouco mais sólido) */
+header.menu-open {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(18px) saturate(200%);
+  -webkit-backdrop-filter: blur(18px) saturate(200%);
 }
 
 /* Hamburger */
@@ -51,7 +60,6 @@ header.menu-open{
 .hamburger.active span:nth-child(1){transform:rotate(45deg);top:9px;}
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg);top:9px;}
-
 /* Navbar Links */
 nav a, #menu-mobile a{
   position:relative; display:inline-block; padding-bottom:2px; color:inherit;
@@ -61,7 +69,6 @@ nav a::after, #menu-mobile a::after{
   content:''; position:absolute; left:0; bottom:0; width:0%; height:2px; background:var(--cor-laranja); transition:width 0.3s ease;
 }
 nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
-
 /* Menu Mobile */
 #menu-mobile{
   display:none; flex-direction:column; align-items:center; gap:1.5rem; padding:2rem 0;
@@ -69,10 +76,75 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
   z-index:20;
 }
 #menu-mobile.show{display:flex;}
-
 /* Hero animations */
 [data-animate]{opacity:0; transform:translateY(20px); transition:all 0.8s ease;}
 [data-animate].show{opacity:1; transform:translateY(0);}
+
+
+
+
+.card-white-glass {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  box-shadow: 15px -5px 0 rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: all 0.4s ease;
+}
+
+.card-white-glass:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.card-white-glass .card-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.5);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-white-glass .card-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 0.5rem;
+}
+
+.card-white-glass .card-content p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+nav a.active, #menu-mobile a.active {
+  color: var(--cor-laranja);
+}
+
+nav a.active::after, #menu-mobile a.active::after {
+  width: 100%;
+}
+
+
+
+
 </style>
 </head>
 <body>
@@ -84,7 +156,6 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
   <div class="triangle triangle2"></div>
   <div class="triangle triangle3"></div>
 </div>
-
 <header>
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between h-full">
     <a href="#" class="flex items-center gap-3 cursor-pointer">
@@ -96,7 +167,7 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
       <a href="#sobre">Sobre Nós</a>
       <a href="#servicos">Serviços</a>
       <a href="#equipe">Equipa</a>
-      <a href="#projectos">Projetos</a>
+      <a href="#projetos">Projetos</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="md:hidden">
@@ -104,16 +175,14 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
     </div>
   </div>
 </header>
-
 <div id="menu-mobile">
   <a href="#inicio">Início</a>
   <a href="#sobre">Sobre Nós</a>
   <a href="#servicos">Serviços</a>
   <a href="#equipe">Equipa</a>
-  <a href="#projectos">Projetos</a>
+  <a href="#projetos">Projetos</a>
   <a href="#contacto">Contacto</a>
 </div>
-
 <section id="inicio" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-32 relative z-5">
   <div class="max-w-3xl text-left" data-animate>
     <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
@@ -131,47 +200,106 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
 </section>
 
 
-<section id="sobre" class="min-h-screen flex justify-center items-center px-6 md:px-20 pt-32 relative z-5 overflow-hidden">
-  <!-- Formas geométricas sutis -->
-  <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-    <div class="circle circle1" style="width:80px;height:80px;top:10%;left:70%;border-color:rgba(245,139,29,0.1);animation-duration:60s;"></div>
-    <div class="triangle triangle1" style="top:50%;left:30%;border-bottom-color:rgba(245,139,29,0.1);animation-duration:100s;"></div>
-  </div>
 
-  <!-- Carta flutuante com sombra lateral -->
-  <div class="relative z-5 max-w-4xl p-8 md:p-16 bg-[#fffdf9] rounded-3xl transform transition-all duration-700 hover:-translate-y-3 hover:scale-105 hover:shadow-3xl animate-float" data-animate
-       style="box-shadow:  15px -10px 0px rgba(0,0,0,0.25), 0 0 30px rgba(245,139,29,0.05); border:1px solid rgba(0,0,0,0.05);">
-    <h2 class="text-3xl md:text-5xl font-extrabold mb-6 text-left">
-      Quem <span class="text-[#f58b1d]">Somos?</span>
-    </h2>
-    <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
-      A <strong>MindStack</strong> é uma agência focada, séria e inovadora, especializada em criar soluções digitais modernas que realmente funcionam.
-    </p>
-    <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
-      Prestamos diversos serviços: <strong class="text-[#f58b1d]">Design Gráfico</strong>, <strong class="text-[#f58b1d]">Design de Logos</strong>, <strong class="text-[#f58b1d]">Websites</strong> e <strong class="text-[#f58b1d]">Estratégias de Marketing</strong>.
-    </p>
-    
-    <h3 class="text-2xl md:text-3xl font-bold mb-4 mt-6">
-      Nossos Diferenciais
-    </h3>
-    <ul class="list-disc list-inside text-gray-700 space-y-2 text-lg md:text-xl">
-      <li>Foco total em resultados e soluções funcionais</li>
-      <li>Equipe dedicada e altamente especializada</li>
-      <li>Processos claros e profissionais</li>
-      <li>Estética moderna e minimalista combinada com tecnologia</li>
-      <li>Comunicação transparente com todos os clientes</li>
-    </ul>
+
+<section id="sobre" class="min-h-screen flex flex-col items-center justify-center px-6 md:px-20 pt-32 pb-20 relative z-5 text-center">
+  <!-- Título -->
+  <h2 class="text-4xl md:text-5xl font-extrabold text-[#2d2d2d] mb-3" data-animate>Sobre Nós</h2>
+  <div class="w-24 h-[3px] bg-[#f58b1d] mb-12"></div>
+
+  <!-- Conteúdo -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+    <article class="card-white-glass md:col-span-2 float-card" data-animate>
+      <div class="card-content text-left">
+        <h3 class="text-xl font-semibold mb-3">Sobre a MindStack</h3>
+        <p class="text-[0.80rem] leading-relaxed text-left">
+          A <strong>Mindstack</strong> foi fundada no final de julho de 2025, a partir da visão de jovens criativos, apaixonados por tecnologia e design. 
+          Embora tenhamos começado há pouco tempo, já conquistamos reconhecimento no mercado, destacando-nos pela entrega de soluções inovadoras. 
+          Em um curto período, realizamos diversos projetos para empresas e clientes individuais, sempre com um foco intransigente na criação de soluções criativas, funcionais e sob medida.
+        </p>
+      </div>
+    </article>
+
+    <article class="card-white-glass float-card" data-animate>
+      <img src="imgs/essencia.png" alt="Essência" class="card-img rounded-full">
+      <div class="card-content text-left">
+        <h3 class="text-xl font-semibold mb-3">Nossa Essência</h3>
+        <p class="text-[0.80rem] leading-relaxed text-left">
+          Somos guiados pela criatividade, ética e comprometimento.
+          Acreditamos que toda ideia, quando desenvolvida com propósito, pode se tornar uma solução sólida, funcional e relevante. 
+          Nosso diferencial reside em nossa capacidade de oferecer novas perspectivas, indo além do óbvio e transformando desafios em oportunidades de inovação.
+        </p>
+      </div>
+    </article>
+
+    <article class="card-white-glass float-card" data-animate>
+      <img src="imgs/respect.png" alt="Clientes" class="card-img rounded-full">
+      <div class="card-content text-left">
+        <h3 class="text-xl font-semibold mb-3">O Que Esperamos dos Nossos Clientes</h3>
+        <p class="text-[0.80rem] leading-relaxed text-left">
+          Acreditamos que o respeito mútuo é a base de uma colaboração bem-sucedida.
+          Valorizamos clientes que compartilham dos mesmos princípios de clareza, organização e comprometimento. 
+          Esperamos seriedade, comunicação transparente e uma parceria ativa durante todas as fases do processo. 
+          Na Mindstack, não há espaço para arrogância. Acreditamos que os melhores resultados são alcançados por meio de colaborações éticas, 
+          alinhadas e fundamentadas no respeito mútuo.
+        </p>
+      </div>
+    </article>
+
+    <article class="card-white-glass md:col-span-2 float-card" data-animate>
+      <img src="imgs/target.png" alt="Nosso Compromisso" class="card-img rounded-full">
+      <div class="card-content text-left">
+        <h3 class="text-xl font-semibold mb-3">O Nosso Compromisso</h3>
+        <p class="text-[0.80rem] leading-relaxed text-left">
+          Na Mindstack, não entregamos apenas projetos; entregamos resultados significativos.
+          Nos empenhamos em compreender profundamente as necessidades de nossos clientes, oferecendo soluções que estejam alinhadas com seus objetivos estratégicos e valores fundamentais. 
+          Trabalhamos com <strong>seriedade</strong>, <strong>responsabilidade</strong> e <strong>dedicação</strong>, pois cada entrega reflete nosso compromisso com a qualidade e o respeito ao cliente.
+        </p>
+      </div>
+    </article>
+
   </div>
 </section>
 
 
+<style>
+/* Efeito de flutuação suave */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-card {
+  animation: float 5s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.float-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+</style>
+
+
+
+
+
+
 <section id="servicos" class="min-h-screen flex flex-col items-center px-6 md:px-20 pt-32 relative z-5">
-  <h2 class="text-4xl md:text-5xl font-extrabold mb-16 text-center text-[#f58b1d]" data-animate>
-    Os Nossos Serviços
-  </h2>
-
+ 
+  <!-- TÍTULO MODERNIZADO: ESCURO + LINHA LARANJA (TAMANHO IDEAL PARA TÍTULOS LONGOS) -->
+  <div class="flex flex-col items-center mb-16" data-animate>
+    <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-[#2d2d2d] relative inline-block">
+      Os Nossos Serviços
+    </h2>
+    <div class="w-24 h-0.5 bg-[#f58b1d] mt-3 rounded-full"></div>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl w-full relative">
-
     <!-- Desenvolvimento Web -->
     <div class="card-diagonal group" data-animate>
       <div class="content">
@@ -180,7 +308,6 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
         <p>Criamos websites modernos, responsivos e funcionais, adaptados às necessidades de cada cliente.</p>
       </div>
     </div>
-
     <!-- Marketing Digital -->
     <div class="card-diagonal group" data-animate>
       <div class="content">
@@ -189,7 +316,6 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
         <p>Estratégias digitais que aumentam visibilidade, tráfego e conversões para o seu negócio.</p>
       </div>
     </div>
-
     <!-- Design Gráfico -->
     <div class="card-diagonal group" data-animate>
       <div class="content">
@@ -198,7 +324,6 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
         <p>Criação de artes visuais impactantes, que reforçam a identidade e comunicação da sua marca.</p>
       </div>
     </div>
-
     <!-- Design de Logos -->
     <div class="card-diagonal group" data-animate>
       <div class="content">
@@ -208,6 +333,16 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
       </div>
     </div>
 
+      <!-- Criacao e Edição de Vídeos -->
+    <div class="card-diagonal group  group md:col-span-2" data-animate>
+      <div class="content">
+        <img src="imgs/video-camera.png" alt="Criação e Edição de Vídeos" class="w-16 h-16 mb-6">
+        <h3>Criação e Edição de Vídeos</h3>
+        <p>Produzimos vídeos envolventes que contam a história da sua marca de forma criativa e impactante.</p>
+      </div>
+    </div>
+
+
     <!-- Desenvolvimento de Sistemas -->
     <div class="card-diagonal group md:col-span-2" data-animate>
       <div class="content">
@@ -216,23 +351,24 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
         <p>Criamos sistemas personalizados, ajustados às necessidades específicas de cada cliente.</p>
       </div>
     </div>
-
   </div>
 </section>
-
-
 <section id="equipe" class="min-h-screen flex flex-col items-center px-6 md:px-20 pt-32 relative z-10 overflow-hidden">
-  <h2 class="text-4xl md:text-5xl font-extrabold mb-16 text-center text-[#f58b1d]" data-animate>
-    A Nossa Equipa
-  </h2>
-
+ 
+  <!-- TÍTULO MODERNIZADO: ESCURO + LINHA LARANJA (TAMANHO PERFEITO) -->
+  <div class="flex flex-col items-center mb-16" data-animate>
+    <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-[#2d2d2d] relative inline-block">
+      A Nossa Equipa
+    </h2>
+    <div class="w-20 h-0.5 bg-[#f58b1d] mt-3 rounded-full"></div>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl w-full">
     <!-- Membro 1 -->
     <div class="card-equipa" data-animate>
       <div class="img-wrapper">
-        <img src="https://images.unsplash.com/photo-1552410260-0a3d4d31fbc8?auto=format&fit=crop&w=500&q=80" alt="Panda">
+        <img src="https://images.unsplash.com/photo-1552410260-0a3d4d31fbc8?auto=format&fit=crop&w=500&q=80" alt="Theo">
       </div>
-      <h3>Alex Panda</h3>
+      <h3>Theo Borges</h3>
       <p>CEO & Fundador</p>
       <div class="btn-toggle" onclick="toggleDescricao(this)">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#f58b1d" class="w-6 h-6">
@@ -240,35 +376,33 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
         </svg>
       </div>
       <div class="descricao">
-        <p>Alex lidera a visão estratégica da empresa com foco em inovação e excelência.  
+        <p>Alex lidera a visão estratégica da empresa com foco em inovação e excelência.
         Criador da cultura colaborativa que define o espírito da nossa equipa.</p>
       </div>
     </div>
-
     <!-- Membro 2 -->
     <div class="card-equipa" data-animate>
       <div class="img-wrapper">
-        <img src="https://images.unsplash.com/photo-1552410261-66b8a4b5b8c9?auto=format&fit=crop&w=500&q=80" alt="Iguana">
+        <img src="https://images.unsplash.com/photo-1552410261-66b8a4b5b8c9?auto=format&fit=crop&w=500&q=80" alt="Strepfen">
       </div>
-      <h3>Rita Iguana</h3>
-      <p>Designer Criativa</p>
+      <h3>Strepfen</h3>
+      <p>Designer Criativo</p>
       <div class="btn-toggle" onclick="toggleDescricao(this)">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#f58b1d" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </div>
       <div class="descricao">
-        <p>Rita é responsável pelas identidades visuais que transformam ideias em experiências únicas.  
+        <p>"Einstein" é responsável pelas identidades visuais que transformam ideias em experiências únicas.
         Criatividade e precisão em cada detalhe.</p>
       </div>
     </div>
-
     <!-- Membro 3 -->
     <div class="card-equipa" data-animate>
       <div class="img-wrapper">
-        <img src="https://images.unsplash.com/photo-1552410262-5d8b9d547b39?auto=format&fit=crop&w=500&q=80" alt="Leopardo">
+        <img src="https://images.unsplash.com/photo-1552410263-8a5d2b2d5f8b?auto=format&fit=crop&w=500&q=80" alt="random">
       </div>
-      <h3>Leo Leopardo</h3>
+      <h3>Tobby</h3>
       <p>Programador Sénior</p>
       <div class="btn-toggle" onclick="toggleDescricao(this)">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#f58b1d" class="w-6 h-6">
@@ -276,17 +410,16 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
         </svg>
       </div>
       <div class="descricao">
-        <p>Leo é o cérebro por trás das soluções técnicas mais complexas.  
-        Especialista em desenvolvimento de sistemas escaláveis e de alta performance.</p>
+        <p>Random é a voz e a energia da marca.
+        Conecta a empresa com o público através de estratégias autênticas e criativas.</p>
       </div>
     </div>
-
     <!-- Membro 4 -->
     <div class="card-equipa" data-animate>
       <div class="img-wrapper">
-        <img src="https://images.unsplash.com/photo-1552410263-8a5d2b2d5f8b?auto=format&fit=crop&w=500&q=80" alt="Chita">
+        <img src="https://images.unsplash.com/photo-1552410263-8a5d2b2d5f8b?auto=format&fit=crop&w=500&q=80" alt="random">
       </div>
-      <h3>Clara Chita</h3>
+      <h3>Random</h3>
       <p>Marketing & Comunicação</p>
       <div class="btn-toggle" onclick="toggleDescricao(this)">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#f58b1d" class="w-6 h-6">
@@ -294,13 +427,12 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
         </svg>
       </div>
       <div class="descricao">
-        <p>Clara é a voz e a energia da marca.  
+        <p>Random é a voz e a energia da marca.
         Conecta a empresa com o público através de estratégias autênticas e criativas.</p>
       </div>
     </div>
   </div>
 </section>
-
 <style>
 /* ==== EQUIPE ==== */
 .card-equipa {
@@ -314,7 +446,6 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
   max-width: 480px;
   margin: 0 auto;
 }
-
 /* IMAGEM */
 .img-wrapper {
   width: 130px;
@@ -330,7 +461,6 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
   height: 100%;
   object-fit: cover;
 }
-
 /* TEXTO */
 .card-equipa h3 {
   font-size: 1.4rem;
@@ -343,7 +473,6 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
   font-size: 1rem;
   font-weight: 500;
 }
-
 /* BOTÃO DROPDOWN */
 .btn-toggle {
   margin-top: 0.5rem;
@@ -354,7 +483,6 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
 .btn-toggle.active {
   transform: rotate(180deg);
 }
-
 /* DESCRIÇÃO ESCONDIDA */
 .descricao {
   max-height: 0;
@@ -367,14 +495,12 @@ nav a:hover::after, #menu-mobile a:hover::after{ width:100%;}
   max-height: 200px;
   opacity: 1;
 }
-
 /* ANIMAÇÃO DE FLUTUAR */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
 }
 </style>
-
 <script>
 function toggleDescricao(el) {
   const desc = el.nextElementSibling;
@@ -382,8 +508,6 @@ function toggleDescricao(el) {
   desc.classList.toggle("mostrar");
 }
 </script>
-
-
 <style>
 /* --- CARTAS DIAGONAIS --- */
 .card-diagonal {
@@ -396,7 +520,6 @@ function toggleDescricao(el) {
   cursor: pointer;
   position: relative;
 }
-
 .card-diagonal::before {
   content: "";
   position: absolute;
@@ -405,168 +528,230 @@ function toggleDescricao(el) {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-
 .card-diagonal .content {
   transform: skewY(3deg);
   padding: 3rem 2rem;
   text-align: center;
 }
-
 .card-diagonal h3 {
   color: #f58b1d;
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
-
 .card-diagonal p {
   color: #555;
   font-size: 1.05rem;
   line-height: 1.6;
 }
-
 /* Hover effect */
 .card-diagonal:hover {
   transform: skewY(-3deg) translateY(-8px);
   box-shadow: 20px 10px 0 rgba(245, 139, 29, 0.3);
 }
-
 .card-diagonal:hover::before {
   opacity: 1;
 }
-
 </style>
 
 
-
-
 <section id="projetos" class="min-h-screen flex flex-col items-center px-6 md:px-20 pt-32 relative z-5">
-  <h2 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-[#f58b1d]" data-animate>Os Nossos Projetos</h2>
 
-  <div class="space-y-20 max-w-6xl w-full">
+  <!-- TÍTULO PRINCIPAL -->
+  <div class="flex flex-col items-center mb-12" data-animate>
+    <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-[#2d2d2d] relative inline-block">
+      Os Nossos Projetos
+    </h2>
+    <div class="w-20 h-0.5 bg-[#f58b1d] mt-3 rounded-full"></div>
+  </div>
 
-    <!-- Projeto 1 -->
-    <div class="flex flex-col md:flex-row items-center gap-10 bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-transform duration-500 hover:scale-[1.02]" data-animate="slide-left">
-      <img src="https://images.unsplash.com/photo-1612831455543-43eabdd7b6e9?auto=format&fit=crop&w=800&q=80" alt="JA Serviços" class="w-full md:w-1/2 rounded-xl shadow">
-      <div class="md:w-1/2">
-        <h3 class="text-2xl font-semibold text-[#f58b1d] mb-3">JA Serviços</h3>
-        <p class="text-gray-800 mb-4">Website desenvolvido para uma empresa de serviços e consultoria, com foco em design limpo e experiência do utilizador intuitiva.</p>
-        <a href="https://jaservicos.vercel.app/" target="_blank" class="inline-block px-5 py-2 bg-[#f58b1d] text-white font-medium rounded-full hover:bg-[#e67e00] transition">Ver Projeto</a>
-      </div>
-    </div>
+  <!-- Estilo da animação do botão (adicione no seu CSS) -->
+<style>
+  .btn-modern {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;               /* Menor e elegante */
+    font-size: 0.75rem;              /* text-xs */
+    font-weight: 600;
+    color: white;
+    background: #f58b1d;
+    border-radius: 9999px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    z-index: 1;
+  }
 
-    <!-- Projeto 2 -->
-    <div class="flex flex-col md:flex-row-reverse items-center gap-10 bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-transform duration-500 hover:scale-[1.02]" data-animate="slide-right">
-      <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=80" alt="Renascente Technology" class="w-full md:w-1/2 rounded-xl shadow">
-      <div class="md:w-1/2">
-        <h3 class="text-2xl font-semibold text-[#f58b1d] mb-3">Renascente Technology</h3>
-        <p class="text-gray-800 mb-4">Plataforma digital que destaca inovação tecnológica e soluções empresariais. Design moderno e responsivo.</p>
-        <a href="https://renascente-technology-lda.vercel.app/" target="_blank" class="inline-block px-5 py-2 bg-[#f58b1d] text-white font-medium rounded-full hover:bg-[#e67e00] transition">Ver Projeto</a>
-      </div>
-    </div>
+  .btn-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #000;             
+    transition: left 0.4s ease;
+    z-index: -1;
+  }
 
-    <!-- Projeto 3 -->
-    <div class="flex flex-col md:flex-row items-center gap-10 bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-transform duration-500 hover:scale-[1.02]" data-animate="slide-left">
-      <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=800&q=80" alt="Grupo SMA Consultoria" class="w-full md:w-1/2 rounded-xl shadow">
-      <div class="md:w-1/2">
-        <h3 class="text-2xl font-semibold text-[#f58b1d] mb-3">Grupo SMA Consultoria</h3>
-        <p class="text-gray-800 mb-4">Website institucional focado em soluções de consultoria empresarial, com navegação fluida e estética corporativa.</p>
-        <a href="https://gruposmaconsultoria.com" target="_blank" class="inline-block px-5 py-2 bg-[#f58b1d] text-white font-medium rounded-full hover:bg-[#e67e00] transition">Ver Projeto</a>
-      </div>
-    </div>
+  .btn-modern:hover::before {
+    left: 0;
+  }
 
-    <!-- Secção de Logos -->
-    <h3 class="text-3xl font-bold text-center text-[#f58b1d] mt-20 mb-10">Design de Logos</h3>
+  .btn-modern .btn-text {
+    transition: transform 0.35s ease;
+  }
+
+  .btn-modern:hover .btn-text {
+    transform: translateX(3px);
+  }
+
+  .btn-modern .icon {
+    font-size: 0.45rem;              /* Ícone pequeno */
+    transition: all 0.35s ease;
+  }
+
+  .btn-modern:hover .icon {
+    transform: translateX(4px) rotate(45deg);
+  }
+</style>
+
+<!-- Projeto 1 -->
+<div class="flex flex-col md:flex-row items-center gap-10 bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-transform duration-500 hover:scale-[1.02]" data-animate="slide-left">
+  <img src="imgs/jaservicos.png" alt="JA Serviços" class="w-full md:w-1/2 rounded-xl shadow">
+  <div class="md:w-1/2">
+    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2">JAServiços</h3>
+    <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+      Empresa especializada na prestação de serviços integrados de jardinagem, automação e elétrica.
+    </p>
+    <a href="https://jaservicos.vercel.app/" target="_blank" class="btn-modern">
+      <span class="btn-text">Visitar Site</span>
+      <i class="fa-solid fa-arrow-up-right-from-square icon"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Projeto 2 -->
+<div class="flex flex-col md:flex-row-reverse items-center gap-10 bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-transform duration-500 hover:scale-[1.02]" data-animate="slide-right">
+  <img src="imgs/renascentechnology.png" alt="Renascente Technology" class="w-full md:w-1/2 rounded-xl shadow">
+  <div class="md:w-1/2">
+    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2">Renascente Technology</h3>
+    <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+      Soluções tecnológicas inovadoras com foco em automação e suporte técnico.
+    </p>
+    <a href="https://renascente-technology-lda.vercel.app/" target="_blank" class="btn-modern">
+      <span class="btn-text">Visitar Site</span>
+      <i class="fa-solid fa-arrow-up-right-from-square icon"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Projeto 3 -->
+<div class="flex flex-col md:flex-row items-center gap-10 bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-transform duration-500 hover:scale-[1.02]" data-animate="slide-left">
+  <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=800&q=80" alt="Grupo SMA Consultoria" class="w-full md:w-1/2 rounded-xl shadow">
+  <div class="md:w-1/2">
+    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2">Grupo SMA Consultoria</h3>
+    <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+      Website institucional com navegação fluida e estética corporativa.
+    </p>
+    <a href="https://gruposmaconsultoria.com" target="_blank" class="btn-modern">
+      <span class="btn-text">Visitar Site</span>
+      <i class="fa-solid fa-arrow-up-right-from-square icon"></i>
+    </a>
+  </div>
+</div>
+
+  <!-- Secção de Logos -->
+  <h3 class="text-3xl font-bold text-center text-[#f58b1d] mt-20 mb-10">Design de Logos</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <img src="https://images.unsplash.com/photo-1602524200952-2607d4b7c3c8?auto=format&fit=crop&w=600&q=80" alt="Logo 1" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
-      <img src="https://images.unsplash.com/photo-1594470799344-4816e6a27a43?auto=format&fit=crop&w=600&q=80" alt="Logo 2" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
-      <img src="https://images.unsplash.com/photo-1601933470619-c7b9b3f5c438?auto=format&fit=crop&w=600&q=80" alt="Logo 3" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
-      <img src="https://images.unsplash.com/photo-1580894894513-541e068a0f3f?auto=format&fit=crop&w=600&q=80" alt="Logo 4" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
-      <img src="https://images.unsplash.com/photo-1580777366343-2c98dbe9ed57?auto=format&fit=crop&w=600&q=80" alt="Logo 5" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <img src="imgs/logos/logo1.jpeg" alt="Logo 1" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <img src="imgs/logos/logo2.jpeg" alt="Logo 2" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <img src="imgs/logos/logo3.jpeg" alt="Logo 3" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <img src="imgs/logos/logo4.jpeg" alt="Logo 4" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
     </div>
   </div>
-</section>
 
+
+</section>
 
 
 
 
 <section id="contacto" class="min-h-screen flex flex-col items-center justify-center px-6 md:px-20 pt-32 pb-20 relative z-5 text-center">
-  <h2 class="text-4xl md:text-5xl font-extrabold mb-8 text-[#f58b1d]" data-animate>Fala Connosco</h2>
-  <p class="text-gray-800 mb-12 max-w-2xl">
-    Estamos sempre prontos para ouvir-te e ajudar a transformar ideias em realidade.  
+ 
+  <!-- TÍTULO MODERNIZADO: ESCURO + LINHA LARANJA (TAMANHO PERFEITO) -->
+  <div class="flex flex-col items-center mb-8" data-animate>
+    <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-[#2d2d2d] relative inline-block">
+      Fala Connosco
+    </h2>
+    <div class="w-20 h-0.5 bg-[#f58b1d] mt-3 rounded-full"></div>
+  </div>
+  <p class="text-gray-700 mb-12 max-w-2xl leading-relaxed">
+    Estamos sempre prontos para ouvir-te e ajudar a transformar ideias em realidade.
     O contacto é direto, rápido e via WhatsApp.
   </p>
-
   <div class="bg-white/70 backdrop-blur-md rounded-2xl shadow-2xl p-10 flex flex-col items-center transition-transform duration-500 hover:scale-[1.03]" data-animate="float">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-20 h-20 mb-6 animate-bounce-slow">
     <h3 class="text-2xl font-semibold text-gray-800 mb-3">Conversa Direta</h3>
     <p class="text-gray-700 mb-8">Clica abaixo para abrir o chat connosco no WhatsApp.</p>
-    
-    <!-- Botão WhatsApp refinado -->
-    <a href="https://wa.me/258840000000?text=Olá%20MindStack!%20Gostaria%20de%20saber%20mais%20sobre%20os%20vossos%20serviços." 
-       target="_blank" 
-       class="whatsapp-btn flex items-center gap-2 px-4 py-2 rounded-full bg-[#25D366] text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 transition transform cursor-pointer">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="w-5 h-5">
-      <span>Enviar Mensagem</span>
+   
+    <!-- BOTÃO WHATSAPP OFICIAL (inalterado) -->
+    <a href="https://wa.me/258840000000?text=Olá%20MindStack!%20Gostaria%20de%20saber%20mais%20sobre%20os%20vossos%20serviços."
+       target="_blank"
+       class="whatsapp-btn flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#00ea6a] text-black font-medium shadow-[15px_-5px_0px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden group">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="w-5 h-5 transition-all duration-300">
+      <span class="transition-colors duration-300">Enviar Mensagem</span>
     </a>
   </div>
 </section>
-
 <style>
-.whatsapp-btn {
-  position: relative; /* necessário para o ::after */
-  overflow: hidden; /* para o overlay não vazar */
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.2rem;
-  border-radius: 50px; /* arredondado estilo WhatsApp */
-  background-color: #25D366;
-  color: rgb(0, 0, 0);
-  font-weight: 600;
-  cursor: pointer;
-  border: 1px solid rgba(0,0,0,0.2);
-  box-shadow: 15px -5px 0px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Overlay preto animado */
-.whatsapp-btn::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* cor do efeito */
-  transform: translateY(100%); /* começa escondido em baixo */
-  transition: transform 0.3s ease; /* velocidade da animação */
-  border-radius: 50px;
-  z-index: 0;
-}
-
-/* Conteúdo do botão acima do overlay */
-.whatsapp-btn * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Hover */
-.whatsapp-btn:hover::after {
-  transform: translateY(0); /* cobre o botão */
-  color: #fff;
-}
-
-.whatsapp-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
-
+  .whatsapp-btn {
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    /* Sombra original */
+    box-shadow: 15px -5px 0px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  /* Overlay que SOBE preenchendo de baixo pra cima (EXATAMENTE como WhatsApp) */
+  .whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #000;
+    border-radius: 50px;
+    transition: height 0.38s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1;
+    transform-origin: bottom;
+  }
+  /* Hover: preenche de baixo pra cima + sombra some + texto branco */
+  .whatsapp-btn:hover::before {
+    height: 100%;
+  }
+  .whatsapp-btn:hover {
+    /* Sombra desaparece completamente */
+    box-shadow: none;
+    transform: translateY(-1px);
+  }
+  .whatsapp-btn:hover span,
+  .whatsapp-btn:hover img {
+    color: #fff;
+    filter: brightness(0) invert(1);
+  }
+  .whatsapp-btn img {
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  .whatsapp-btn:hover img {
+    transform: scale(1.12);
+  }
 </style>
-
-
-
-
 <!-- FOOTER FINAL FUNCIONAL - MODERNO & ELEGANTE -->
 <link
   rel="stylesheet"
@@ -574,7 +759,6 @@ function toggleDescricao(el) {
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
-
 <style>
   /* Ícones menores + círculo laranja suave */
   .social-link {
@@ -596,7 +780,6 @@ function toggleDescricao(el) {
     overflow: hidden;
     z-index: 1;
   }
-
   .social-link::before {
     content: '';
     position: absolute;
@@ -606,17 +789,14 @@ function toggleDescricao(el) {
     z-index: -1;
     transition: all 0.3s ease;
   }
-
   .social-link:hover {
     transform: translateY(-3px);
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
     color: #f58b1d;
   }
-
   .social-link:hover::before {
     background: radial-gradient(circle, rgba(245, 139, 29, 0.24) 0%, transparent 70%);
   }
-
   /* Título + linha laranja (mais leve) */
   .social-title-wrapper {
     display: flex;
@@ -624,7 +804,6 @@ function toggleDescricao(el) {
     align-items: center;
     width: 100%;
   }
-
   .social-title-wrapper h4 {
     margin: 0 0 0.4rem 0;
     font-size: 0.95rem;
@@ -633,7 +812,6 @@ function toggleDescricao(el) {
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
-
   .social-title-wrapper::after {
     content: '';
     width: 50px;
@@ -642,29 +820,24 @@ function toggleDescricao(el) {
     border-radius: 1px;
     opacity: 0.8;
   }
-
   /* Espaçamento geral mais arejado */
   .footer-content {
     gap: 2.5rem;
   }
-
   .footer-logo-text {
     font-size: 1.05rem;
     font-weight: 700;
   }
-
   .footer-desc {
     font-size: 0.9rem;
     line-height: 1.55;
     max-width: 36rem;
   }
-
   .footer-copyright {
     font-size: 0.85rem;
     color: #777;
     margin-top: 2rem;
   }
-
   @media (max-width: 768px) {
     .footer-content {
       gap: 2rem;
@@ -677,7 +850,7 @@ function toggleDescricao(el) {
 
 <footer id="site-footer" class="w-full px-6 md:px-20 py-10" style="background:#fff8f0;">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between footer-content">
-    
+   
     <!-- Logo + descrição -->
     <div class="flex flex-col items-center md:items-start text-center md:text-left">
       <div class="flex items-center gap-2.5 mb-2">
@@ -688,7 +861,6 @@ function toggleDescricao(el) {
         Transformamos ideias em soluções digitais criativas e inteligentes. <strong>Inovação que redefine o futuro.</strong>
       </p>
     </div>
-
     <!-- Redes sociais -->
     <div class="w-full md:w-auto">
       <div class="social-title-wrapper">
@@ -707,18 +879,10 @@ function toggleDescricao(el) {
       </div>
     </div>
   </div>
-
   <div class="footer-copyright" style="text-align:center;">
     © 2025 MindStack. Todos os direitos reservados.
   </div>
 </footer>
-
-
-
-
-
-
-
 <style>
 [data-animate] {
   opacity: 0;
@@ -730,7 +894,6 @@ function toggleDescricao(el) {
   transform: translateY(0);
 }
 </style>
-
 <script>
 window.addEventListener('load', () => {
   document.querySelectorAll('[data-animate]').forEach(el => {
@@ -738,15 +901,6 @@ window.addEventListener('load', () => {
   });
 });
 </script>
-
-
-
-
-
-
-
-
-
 <style>
 @keyframes bounce-slow {
   0%, 100% { transform: translateY(0); }
@@ -756,10 +910,6 @@ window.addEventListener('load', () => {
   animation: bounce-slow 3s infinite ease-in-out;
 }
 </style>
-
-
-
-
 <style>
 /* Animação Fade + Slide lateral */
 [data-animate-slide] {
@@ -767,13 +917,11 @@ window.addEventListener('load', () => {
   transform: translateX(-30px);
   transition: all 0.8s ease;
 }
-
 [data-animate-slide].show {
   opacity: 1;
   transform: translateX(0);
 }
 </style>
-
 <script>
 window.addEventListener('load', () => {
   document.querySelectorAll('[data-animate-slide]').forEach((el, i) => {
@@ -781,9 +929,6 @@ window.addEventListener('load', () => {
   });
 });
 </script>
-
-
-
 <style>
 /* Flutuação suave */
 @keyframes float {
@@ -793,19 +938,17 @@ window.addEventListener('load', () => {
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
-
 /* Opcional: hover sombra ainda mais intensa */
 .animate-float:hover {
   box-shadow: 20px 20px 60px rgba(0,0,0,0.25), 0 0 40px rgba(245,139,29,0.08);
 }
 </style>
-
 <script>
 // Animação ao scroll
 function animateOnScroll() {
   const elements = document.querySelectorAll('[data-animate]');
   const windowHeight = window.innerHeight;
-  
+ 
   elements.forEach(el => {
     const position = el.getBoundingClientRect().top;
     if(position < windowHeight - 100){
@@ -813,23 +956,18 @@ function animateOnScroll() {
     }
   });
 }
-
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
 </script>
-
-
 <script>
 const hamb=document.getElementById('hamburger');
 const menuMobile=document.getElementById('menu-mobile');
 const header=document.querySelector('header');
-
 hamb.addEventListener('click',()=>{
   hamb.classList.toggle('active');
   menuMobile.classList.toggle('show');
   header.classList.toggle('menu-open');
 });
-
 document.querySelectorAll('#menu-mobile a').forEach(link=>{
   link.addEventListener('click',()=>{
     hamb.classList.remove('active');
@@ -837,7 +975,6 @@ document.querySelectorAll('#menu-mobile a').forEach(link=>{
     header.classList.remove('menu-open');
   });
 });
-
 window.addEventListener('resize',()=>{
   if(window.innerWidth>=768){
     hamb.classList.remove('active');
@@ -845,12 +982,88 @@ window.addEventListener('resize',()=>{
     header.classList.remove('menu-open');
   }
 });
-
 window.addEventListener('load',()=>{
   document.querySelectorAll('[data-animate]').forEach(el=>{
     setTimeout(()=>el.classList.add('show'),100);
   });
 });
 </script>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('nav a, #menu-mobile a');
+  const sections = document.querySelectorAll('section');
+  let activeSectionId = null;
+
+  // Remove classe active de todos os links
+  const removeActive = () => {
+    navLinks.forEach(link => link.classList.remove('active'));
+  };
+
+  // Ativa links correspondentes ao ID
+  const activateLinks = (id) => {
+    if (activeSectionId === id) return;
+    activeSectionId = id;
+    removeActive();
+    document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
+      link.classList.add('active');
+    });
+  };
+
+  // Intersection Observer (mais eficiente que scroll)
+  const observer = new IntersectionObserver((entries) => {
+    let visibleSection = null;
+    let maxRatio = 0;
+
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+        maxRatio = entry.intersectionRatio;
+        visibleSection = entry.target;
+      }
+    });
+
+    if (visibleSection) {
+      const id = visibleSection.getAttribute('id');
+      activateLinks(id);
+      console.log(`Section ativa: ${id}`);
+    }
+  }, {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px', // Centro da viewport
+    threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  });
+
+  // Observa todas as sections
+  sections.forEach(section => {
+    if (section.id) observer.observe(section);
+  });
+
+  // Fallback: ativa a primeira seção ao carregar (se estiver no topo)
+  const activateInitialSection = () => {
+    const firstSection = sections[0];
+    if (firstSection && window.scrollY < 100) {
+      activateLinks(firstSection.id);
+    }
+  };
+
+  // Debounce para resize/orientation change
+  let resizeTimeout;
+  const handleResize = () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Reobservar se necessário (raro)
+      activateInitialSection();
+    }, 200);
+  };
+
+  window.addEventListener('load', activateInitialSection);
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('orientationchange', handleResize);
+});
+</script>
+
 </body>
 </html>
