@@ -147,8 +147,38 @@
       <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/layers.png" class="w-16 h-16 mb-6"><h3>Design Gráfico</h3><p>Artes visuais impactantes para a sua marca.</p></div></div>
       <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/logo.png" class="w-16 h-16 mb-6"><h3>Design de Logos</h3><p>Logotipos únicos e memoráveis.</p></div></div>
       <div class="card-diagonal group md:col-span-2" data-animate><div class="content"><img src="imgs/servicos/video-editing.png" class="w-16 h-16 mb-6"><h3>Criação e Edição de Vídeos</h3><p>Vídeos envolventes que contam a sua história.</p></div></div>
-      <div class="card-diagonal group md:col-span-2" data-animate><div class="content"><img src="imgs/servicos/software.png" class="w-16 h-16 mb-6"><h3>Desenvolvimento de Sistemas Web</h3><p>Sistemas personalizados para o seu negócio.</p></div></div>
+      <div class="card-diagonal group md:col-span-2" data-animate><div class="content"><img src="imgs/servicos/software.png" class="w-16 h-16 mb-6"><h3>Desenvolvimento de Sistemas Web</h3><p>Sistemas robustos personalizados para o seu negócio.</p></div></div>
     </div>
+
+    <!-- Botão -->
+  <div id="btn-servicos" 
+      class="px-6 py-3 bg-[#f58b1d] mt-8 text-white rounded-full font-semibold shadow hover:scale-105 transition cursor-pointer">
+    Serviços adicionais <i class="fa-solid fa-plus"></i>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal-servicos" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+    
+    <div class="card-white-glass modal-card relative w-[90%] max-w-lg">
+      
+      <!-- Botão fechar -->
+      <button id="fechar-modal" class="absolute top-4 right-5 text-gray-500 hover:text-black text-2xl">
+        &times;
+      </button>
+
+      <h2 class="text-center">Serviços Básicos de TI</h2>
+
+      <ul class="space-y-3 text-gray-700">
+        <li>💻 Formatação e Configuração de PC</li>
+        <li>🛡️ Remoção de Vírus</li>
+        <li>📦 Instalação de Pacote Office (Word, Excel, PowerPoint)</li>
+        <li>🔓 Remoção de iCloud</li>
+      </ul>
+
+    </div>
+  </div>
+
+
   </section>
 
   <section id="equipe" class="min-h-screen flex flex-col items-center px-6 md:px-20 pt-32 relative z-10 overflow-hidden">
@@ -246,6 +276,7 @@
   <script src="js/scroll-animations.js"></script>
   <script src="js/active-section.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/services.js"></script>
   <script src="js/typing-effect.js"></script>
   
 </body>
