@@ -37,6 +37,10 @@
         <span class="logo-text font-bold text-lg text-[#f58b1d] tracking-tight">MindStack</span>
       </a>
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="https://wa.me/258850244716?text=Olá%20MindStack!%20Gostaria%20de%20saber%20mais%20sobre%20os%20vossos%20serviços." target="_blank" class="whatsapp-btn flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#00ea6a] text-black font-medium shadow-[15px_-5px_0px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden group">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="w-5 h-5 transition-all duration-300">
+          <span class="transition-colors duration-300">Enviar Mensagem</span>
+        </a>
         <a href="#inicio">Início</a>
         <a href="#sobre">Sobre Nós</a>
         <a href="#servicos">Serviços</a>
@@ -138,41 +142,24 @@
       <div class="w-24 h-0.5 bg-[#f58b1d] mt-3 rounded-full"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl w-full">
-      <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/wd.png" class="w-16 h-16 mb-6"><h3>Desenvolvimento Web</h3><p>Criamos websites modernos, responsivos e funcionais.</p></div></div>
-      <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/social-media.png" class="w-16 h-16 mb-6"><h3>Marketing Digital</h3><p>Estratégias que aumentam visibilidade e conversões.</p></div></div>
-      <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/layers.png" class="w-16 h-16 mb-6"><h3>Design Gráfico</h3><p>Artes visuais impactantes para a sua marca.</p></div></div>
-      <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/logo.png" class="w-16 h-16 mb-6"><h3>Design de Logos</h3><p>Logotipos únicos e memoráveis.</p></div></div>
-      <div class="card-diagonal group md:col-span-2" data-animate><div class="content"><img src="imgs/servicos/video-editing.png" class="w-16 h-16 mb-6"><h3>Criação e Edição de Vídeos</h3><p>Vídeos envolventes que contam a sua história.</p></div></div>
-      <div class="card-diagonal group md:col-span-2" data-animate><div class="content"><img src="imgs/servicos/software.png" class="w-16 h-16 mb-6"><h3>Desenvolvimento de Sistemas Web</h3><p>Sistemas robustos personalizados para o seu negócio.</p></div></div>
-    </div>
-
-    <!-- Botão -->
-  <div id="btn-servicos" 
-      class="px-6 py-3 bg-[#f58b1d] mt-8 text-white rounded-full font-semibold shadow hover:scale-105 transition cursor-pointer">
-    Serviços adicionais <i class="fa-solid fa-plus"></i>
-  </div>
-
-  <!-- Modal -->
-  <div id="modal-servicos" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
-    
-    <div class="card-white-glass modal-card relative w-[90%] max-w-lg">
-      
-      <!-- Botão fechar -->
-      <button id="fechar-modal" class="absolute top-4 right-5 text-gray-500 hover:text-black text-2xl">
-        &times;
-      </button>
-
-      <h2 class="text-center">Serviços Básicos de TI</h2>
-
-      <ul class="space-y-3 text-gray-700">
-        <li>💻 Formatação e Configuração de PC</li>
-        <li>🛡️ Remoção de Vírus</li>
-        <li>📦 Instalação de Pacote Office (Word, Excel, PowerPoint)</li>
-        <li>🔓 Remoção de iCloud</li>
-      </ul>
-
-    </div>
-  </div>
+      <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/wd.png" class="w-16 h-16 mb-6 block mx-auto"><h3>Desenvolvimento Web</h3><p>Criamos websites modernos, responsivos e funcionais.</p></div></div>
+      <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/social-media.png" class="w-16 h-16 mb-6 block mx-auto"><h3>Marketing Digital</h3><p>Estratégias que aumentam visibilidade e conversões.</p></div></div>
+      <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/layers.png" class="w-16 h-16 mb-6 block mx-auto"><h3>Design Gráfico</h3><p>Artes visuais impactantes para a sua marca.</p></div></div>
+      <div class="card-diagonal group" data-animate><div class="content"><img src="imgs/servicos/logo.png" class="w-16 h-16 mb-6 block mx-auto"><h3>Design de Logos</h3><p>Logotipos únicos e memoráveis.</p></div></div>
+      <div class="card-diagonal group md:col-span-2" data-animate><div class="content"><img src="imgs/servicos/video-editing.png" class="w-16 h-16 mb-6 block mx-auto"><h3>Criação e Edição de Vídeos</h3><p>Vídeos envolventes que contam a sua história.</p></div></div>
+      <div class="card-diagonal group md:col-span-2" data-animate><div class="content"><img src="imgs/servicos/software.png" class="w-16 h-16 mb-6 block mx-auto"><h3>Desenvolvimento de Sistemas Web</h3><p>Sistemas robustos personalizados para o seu negócio.</p></div></div>
+      <div class="card-diagonal group md:col-span-2" data-animate><div class="content"><img src="imgs/servicos/technical-support.png" class="w-16 h-16 mb-6 block mx-auto"><h3>Assistência Técnica</h3>
+        <div class="btn-toggle" onclick="toggleDescricao(this)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#f58b1d" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></div>
+          <div class="descricao">
+            <p>💻 Formatação de PC</p>
+            <p>⚙️ Instalação & Configuração de Sistemas Operativos</p>
+            <p>📦 Instalação de Pacote Office (Word, Excel, PowerPoint)</p>
+            <p>🛡️ Remoção de Vírus</p>
+            <p>🔓 Remoção de iCloud</p>
+          </div>
+      </div>
+      </div>
+      </div>
 
 
   </section>
@@ -213,11 +200,20 @@
     </div>
 
     <h3 class="text-3xl font-bold text-center text-[#f58b1d] mt-20 mb-10">Design de Logos</h3>
+        <p class="text-gray-700 mb-12 max-w-2xl leading-relaxed">
+      Estudos mostram que um bom design aumenta até 90% a atenção, 80% a confiança e 70% a conversão. Transformamos sua ideia em identidade gráfica de alto impacto.
+      <strong>Veja os exemplos nos Designs abaixo.</strong>
+    </p>
+    
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       <img src="imgs/projetos/logos/logo1.jpeg" alt="Logo 1" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
       <img src="imgs/projetos/logos/logo2.jpeg" alt="Logo 2" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
       <img src="imgs/projetos/logos/logo3.jpeg" alt="Logo 3" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
       <img src="imgs/projetos/logos/logo4.jpeg" alt="Logo 4" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <img src="imgs/projetos/logos/logo5.png" alt="Logo 5" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <img src="imgs/projetos/logos/logo6.png" alt="Logo 5" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <img src="imgs/projetos/logos/logo7.png" alt="Logo 5" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <img src="imgs/projetos/logos/logo8.png" alt="Logo 5" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
     </div>
   </section>
 
